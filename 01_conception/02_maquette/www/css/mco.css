@@ -1,0 +1,32 @@
+body {
+padding-top: 70px;
+background-color: #F0F0F0;
+font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+/*#F4F7FC;*/
+}
+.mco-brand{
+font-size:22px;
+font-family: 'Lucida Console', Monaco, monospace;
+}
+.mco-navbar{
+border-bottom:2px solid #646464;
+background-color:#646464;
+}
+.mco-navbar a {
+color:#FFFFFF;
+}
+
+.mco-panel-container{
+background-color: #FFFFFF;
+padding:0;
+}
+.mco-panel{
+margin-bottom:0;
+}
+
+.mco-panel .panel-footer{
+background-color: #FFFFFF;
+}
+.mco-panel-heading{
+border-bottom: 2px solid #F0F0F0;
+}

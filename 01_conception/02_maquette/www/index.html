@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MCO Manager</title>
+
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- <link href="css/bootstrap-theme.min.css" rel="stylesheet"> -->
+		<link href="css/mco.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<nav class="navbar navbar-fixed-top mco-navbar" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand mco-brand" href=""><strong>MCO Manager</strong></a>
+				</div>
+			</div><!-- /.container -->
+		</nav>
+
+		<div class="container-fluid">
+			<div class="row">
+				<!-- - conteneur gauche : messsage et fonctionnalité de l'application -->
+				<div class="col-xs-12 col-md-8">
+					<article>
+						<p>
+							Alpha Version 0.0 <a href="">Voir les nouveautés</a>
+						</p>
+					</article>
+				</div>
+				<!-- - conteneur droite : formulaire de connection  de l'application -->
+				<div class="col-xs-6 col-md-4">
+					<div class="panel mco-panel">
+						<div class="panel-heading">
+							<h3 class="panel-title mco-brand"><strong>Suivi et Pilotage Quotidien des Ressources du Projet</strong></h3>
+						</div>
+						<hr/>
+						<div class="panel-body">
+							<form role="form" class="signin-form-element" id="signinform" name="signin" action="no-data-view-layout.html" accept-charset="UTF-8" method="post">
+								<fieldset>
+									<legend>
+										Connectez-vous à MCO Manager
+									</legend>
+									<div class="form-group">
+										<label class="sr-only" for="username">Login<abbr title="Required">*</abbr></label>
+										<input class="form-control input-sm" name="username" type="email" id="username" value="" title="nom utilisateur" placeholder="identifiant ou email">
+									</div>
+									<div class="form-group">
+										<label class="sr-only" for="sesame">Mot de passe<abbr title="Required">*</abbr></label>
+										<input class="form-control input-sm" name="sesame" type="password" id="sesame" value="" title="mot de passe" placeholder="Sesame">
+									</div>
+									<!--
+									<div class="form-group">
+									<label for="remember_me" class="checkbox">
+									<input class="" id="remember_me" name="remember_me" type="checkbox" checked="checked" title="remember me" value="1">Rester Connecté
+									</label>
+									</div> -->
+									<div class="form-group">
+										<input class="btn btn-sm btn-info" type="submit" name="submit" id="submit" value="se connecter" title="se connecter à l'application">
+									</div>
+									<div id="form_auth_token">
+										<input name="auth_token" type="hidden" value="1">
+										<input name="form_id" type="hidden" value="form_1">
+									</div>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+					<div class="center-block">
+						<a href="#" class="">mot de passe oublié ?</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>
