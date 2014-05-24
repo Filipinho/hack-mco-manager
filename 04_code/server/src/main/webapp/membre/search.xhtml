@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{membreBean.page}"/>
+		<f:event type="preRenderView" listener="#{membreBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Membre entities"/>
+
+	<ui:define name="header">
+		Membre
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Membre entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="membreBeanExampleTrigramme" value="Trigramme:"/>
+						<h:panelGroup>
+							<h:inputText id="membreBeanExampleTrigramme" maxLength="3" value="#{membreBean.example.trigramme}"/>
+							<h:message for="membreBeanExampleTrigramme" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="membreBeanExampleNom" value="Nom:"/>
+						<h:panelGroup>
+							<h:inputText id="membreBeanExampleNom" value="#{membreBean.example.nom}"/>
+							<h:message for="membreBeanExampleNom" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="membreBeanExamplePrenom" value="Prenom:"/>
+						<h:panelGroup>
+							<h:inputText id="membreBeanExamplePrenom" value="#{membreBean.example.prenom}"/>
+							<h:message for="membreBeanExamplePrenom" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="membreBeanExampleEmail" value="Email:"/>
+						<h:panelGroup>
+							<h:inputText id="membreBeanExampleEmail" value="#{membreBean.example.email}"/>
+							<h:message for="membreBeanExampleEmail" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="membreBeanExampleOrganisation" value="Organisation:"/>
+						<h:panelGroup>
+							<h:inputText id="membreBeanExampleOrganisation" value="#{membreBean.example.organisation}"/>
+							<h:message for="membreBeanExampleOrganisation" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{membreBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{membreBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="membreBeanPageItems" styleClass="data-table" value="#{membreBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Trigramme"/>
+					</f:facet>
+					<h:link outcome="/membre/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTrigramme" value="#{_item.trigramme}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nom"/>
+					</f:facet>
+					<h:link outcome="/membre/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNom" value="#{_item.nom}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Prenom"/>
+					</f:facet>
+					<h:link outcome="/membre/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPrenom" value="#{_item.prenom}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Email"/>
+					</f:facet>
+					<h:link outcome="/membre/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEmail" value="#{_item.email}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Organisation"/>
+					</f:facet>
+					<h:link outcome="/membre/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrganisation" value="#{_item.organisation}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{membreBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

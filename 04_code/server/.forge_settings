@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+<org>
+<jboss>
+<forge>
+<scaffold>
+<faces>
+<FacesScaffold_targetDir>/</FacesScaffold_targetDir>
+</faces>
+</scaffold>
+</forge>
+</jboss>
+</org>
+<activatorChoice>APP_CLASS</activatorChoice>
+<rootpath>/rest</rootpath>
+<rest>
+<applicationclass>
+<package>com.mco.fr.rest</package>
+<name>MCOApplication</name>
+</applicationclass>
+</rest>
+</configuration>

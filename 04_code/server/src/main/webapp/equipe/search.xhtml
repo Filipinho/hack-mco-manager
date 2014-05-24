@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{equipeBean.page}"/>
+		<f:event type="preRenderView" listener="#{equipeBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Equipe entities"/>
+
+	<ui:define name="header">
+		Equipe
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Equipe entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="equipeBeanExampleFamille" value="Famille:"/>
+						<h:panelGroup>
+							<h:inputText id="equipeBeanExampleFamille" value="#{equipeBean.example.famille}"/>
+							<h:message for="equipeBeanExampleFamille" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{equipeBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{equipeBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="equipeBeanPageItems" styleClass="data-table" value="#{equipeBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Famille"/>
+					</f:facet>
+					<h:link outcome="/equipe/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemFamille" value="#{_item.famille}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{equipeBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

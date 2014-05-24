@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{projetBean.id}"/>
+		<f:event type="preRenderView" listener="#{projetBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Projet"/>
+
+	<ui:define name="header">
+		Projet
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Projet
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="projetBeanProjetNom" value="Nom:"/>
+			<h:outputText id="projetBeanProjetNom" value="#{projetBean.projet.nom}"/>
+			<h:outputText/>
+			<h:outputLabel for="projetBeanProjetDescription" value="Description:"/>
+			<h:outputText id="projetBeanProjetDescription" value="#{projetBean.projet.description}"/>
+			<h:outputText/>
+			<h:outputLabel for="projetBeanProjetCompetences" value="Competences:"/>
+			<h:dataTable id="projetBeanProjetCompetences" styleClass="data-table" value="#{forgeview:asList(projetBean.projet.competences)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Famille"/>
+					</f:facet>
+					<h:link outcome="/competence/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemFamille" value="#{_item.famille}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Libelle"/>
+					</f:facet>
+					<h:link outcome="/competence/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemLibelle" value="#{_item.libelle}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Commentaire"/>
+					</f:facet>
+					<h:link outcome="/competence/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCommentaire" value="#{_item.commentaire}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

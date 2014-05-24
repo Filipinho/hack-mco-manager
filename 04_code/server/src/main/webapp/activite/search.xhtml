@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{activiteBean.page}"/>
+		<f:event type="preRenderView" listener="#{activiteBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Activite entities"/>
+
+	<ui:define name="header">
+		Activite
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Activite entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="activiteBeanExampleNom" value="Nom:"/>
+						<h:panelGroup>
+							<h:inputText id="activiteBeanExampleNom" value="#{activiteBean.example.nom}"/>
+							<h:message for="activiteBeanExampleNom" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="activiteBeanExampleFamille" value="Famille:"/>
+						<h:panelGroup>
+							<h:inputText id="activiteBeanExampleFamille" value="#{activiteBean.example.famille}"/>
+							<h:message for="activiteBeanExampleFamille" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="activiteBeanExampleCode" value="Code:"/>
+						<h:panelGroup>
+							<h:inputText id="activiteBeanExampleCode" value="#{activiteBean.example.code}"/>
+							<h:message for="activiteBeanExampleCode" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="activiteBeanExampleLibelle" value="Libelle:"/>
+						<h:panelGroup>
+							<h:inputText id="activiteBeanExampleLibelle" value="#{activiteBean.example.libelle}"/>
+							<h:message for="activiteBeanExampleLibelle" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="activiteBeanExampleCommentaire" value="Commentaire:"/>
+						<h:panelGroup>
+							<h:inputText id="activiteBeanExampleCommentaire" value="#{activiteBean.example.commentaire}"/>
+							<h:message for="activiteBeanExampleCommentaire" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{activiteBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{activiteBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="activiteBeanPageItems" styleClass="data-table" value="#{activiteBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nom"/>
+					</f:facet>
+					<h:link outcome="/activite/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNom" value="#{_item.nom}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Famille"/>
+					</f:facet>
+					<h:link outcome="/activite/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemFamille" value="#{_item.famille}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/activite/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Libelle"/>
+					</f:facet>
+					<h:link outcome="/activite/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemLibelle" value="#{_item.libelle}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Duree"/>
+					</f:facet>
+					<h:link outcome="/activite/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDuree" value="#{_item.duree}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{activiteBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,107 @@
+<nav class="navbar navbar-fixed-top mco-navbar" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mco-nav-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand mco-brand" href="#"><strong>MCO Manager</strong></a>
+		</div>
+		<div id="mco-nav-collapse" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a class="btn btn-link" href="index.html">Se déconnecter</a>
+				</li>
+			</ul>
+		</div>
+	</div><!-- /.container -->
+</nav>
+
+<div class="container-fluid">
+	<div class="row">
+		<!-- - conteneur gauche : conteneur de l'application -->
+		<div class="col-xs-12 col-md-10">
+			<div class="row">
+				<div class="col-md-1">
+					<ul class="nav nav-pills nav-stacked">
+						<li class="">
+							<a id="mco-btn-creer-projet" href="javascript:void(0)" type="button" class="btn btn-default" title="Créer un projet"><span class="glyphicon glyphicon-plus"> </span></a>
+						</li>
+						<li class="">
+							<a id="mco-btn-importer-projet" href="javascript:void(0)" type="button" class="btn btn-default" title="Importer les données à partir d'un fichier"><span class="glyphicon glyphicon-download"> </span></a>
+						</li>
+					</ul>
+				</div>
+				<div id="mco-id-app-left-container" class="col-md-10 mco-panel-container">
+					<section id="app-content-main">
+						<div class="panel mco-panel">
+							<div class="panel-heading mco-panel-heading">
+								<h3 class="panel-title mco-brand">Tous vos projets <small><span class="badge"><%= nbProjet %></span></small></h3>
+							</div>
+							<div id="mco-app" class="panel-body">
+								<section id="mco-app-content">
+									<% if(nbProjet > 0){ %>
+									<div class="row">
+										<% _.each( projets, function(p){ %>
+										<div class="col-md-3">
+											<ul class="list-group">
+												<a id="id-projet-<%= p.id%>" href="javascript:void(0)" class="list-group-item active"> <h4 class="list-group-item-heading"><%= p.nom %></h4>
+												<p class="list-group-item-text">
+													<%= p.description %>
+												</p> </a>
+												<li class="list-group-item">
+													<small>Dernière activité il y a <%= p.derniereMAJ %></small>
+												</li>
+												<li class="list-group-item">
+													<span class="badge"><%= p.nbMembre %></span>
+													Membre(s)
+												</li>
+												<li class="list-group-item">
+													<span class="badge"><%= p.nbOutils %></span>
+													Outil(s)
+												</li>
+												<li class="list-group-item">
+													<span class="badge"><%= p.nbCompetences %></span>
+													Compétence(s)
+												</li>
+												<li class="list-group-item">
+													Statut <span class="label label-success"><em><%= p.statut %></em></span>
+												</li>
+											</ul>
+										</div>
+										<% }); %>
+									</div>
+									<% } else { %>
+									<%= message %>
+									<% };%>
+								</section>
+							</div>
+							<div class="panel-footer">
+								Rien à afficher ici
+							</div>
+						</div>
+					</section>
+
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+		</div>
+		<!-- -/conteneur gauche : conteneur de l'application -->
+
+		<!-- - conteneur droite : conteneur de notification l'application -->
+		<div id="mco-id-app-right-container" class="col-xs-6 col-md-2 mco-panel-container">
+			<div class="col-md-12">
+				<div class="panel mco-panel">
+					<div class="panel-heading">
+						<h3 class="panel-title">Notifications</h3>
+					</div>
+					<div class="panel-body">
+						Panel content
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!-- Load the script "js/main.js" as our entry point -->

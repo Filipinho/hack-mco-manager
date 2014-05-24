@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MCO Manager</title>
+
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- <link href="css/bootstrap-theme.min.css" rel="stylesheet"> -->
+		<link href="css/mco.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<nav class="navbar navbar-fixed-top mco-navbar" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mco-nav-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand mco-brand" href="#"><strong>MCO Manager</strong></a>
+				</div>
+				<div id="mco-nav-collapse" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a class="btn btn-link" href="index.html">Se déconnecter</a>
+						</li>
+					</ul>
+				</div>
+			</div><!-- /.container -->
+		</nav>
+
+		<div class="container-fluid">
+			<div class="row">
+				<!-- - conteneur gauche : conteneur de l'application -->
+				<div class="col-xs-12 col-md-10">
+					<div class="row">
+						<div class="col-md-1">
+							<ul class="nav nav-pills nav-stacked">
+								<li class="">
+									<a href="add-project-view-layout.html" type="button" class="btn btn-default" title="Créer un projet"><span class="glyphicon glyphicon-plus"> </span></a>
+								</li>
+								<li class="">
+									<a href="add-project-view-layout.html" type="button" class="btn btn-default" title="Importer les données à partir d'un fichier"><span class="glyphicon glyphicon-download"> </span></a>
+								</li>
+							</ul>
+						</div>
+						<div id="mco-id-app-left-container" class="col-md-10 mco-panel-container">
+							<div class="panel mco-panel">
+								<div class="panel-heading mco-panel-heading">
+									<h3 class="panel-title mco-brand">Tous vos projets <small><span class="badge">4</span></small></h3>
+								</div>
+								<div class="panel-body">
+									<section id="app-content-main">
+										<div class="row">
+											<div class="col-md-3">
+												<ul class="list-group">
+													<a href="project-view-layout.html" class="list-group-item active"> 
+														<h4 class="list-group-item-heading">Mon projet</h4>
+														<p class="list-group-item-text">description</p> 
+													</a>
+													<li class="list-group-item">
+														<small>Dernière activité il y a 12 jour(s)</small>
+													</li>
+													<li class="list-group-item">
+														<span class="badge">1</span>
+														Membre(s)
+													</li>
+													<li class="list-group-item">
+														<span class="badge">0</span>
+														Outil(s)
+													</li>
+													<li class="list-group-item">
+														<span class="badge">1</span>
+														Compétence(s)
+													</li>
+													<li class="list-group-item">
+														Statut <span class="label label-success"><em>En cours</em></span>
+													</li>
+												</ul>
+											</div>
+											<div class="col-md-3">
+												<ul class="list-group">
+													<a href="#" class="list-group-item active"> 
+														<h4 class="list-group-item-heading">Mon projet</h4>
+														<p class="list-group-item-text">description</p> 
+													</a>
+													<li class="list-group-item">
+														<small>Dernière activité il y a 12 jour(s)</small>
+													</li>
+													<li class="list-group-item">
+														<span class="badge">1</span>
+														Membre(s)
+													</li>
+													<li class="list-group-item">
+														<span class="badge">0</span>
+														Outil(s)
+													</li>
+													<li class="list-group-item">
+														<span class="badge">1</span>
+														Compétence(s)
+													</li>
+													<li class="list-group-item">
+														Statut <span class="label label-success"><em>En cours</em></span>
+													</li>
+												</ul>
+											</div>
+											<div class="col-md-3">
+												<ul class="list-group">
+													<a href="#" class="list-group-item active"> 
+														<h4 class="list-group-item-heading">Mon projet</h4>
+														<p class="list-group-item-text">description</p> 
+													</a>
+													<li class="list-group-item">
+														<small>Dernière activité il y a 12 jour(s)</small>
+													</li>
+													<li class="list-group-item">
+														<span class="badge">1</span>
+														Membre(s)
+													</li>
+													<li class="list-group-item">
+														<span class="badge">0</span>
+														Outil(s)
+													</li>
+													<li class="list-group-item">
+														<span class="badge">1</span>
+														Compétence(s)
+													</li>
+													<li class="list-group-item">
+														Statut <span class="label label-success"><em>En cours</em></span>
+													</li>
+												</ul>
+											</div>
+											<div class="col-md-3">
+												<ul class="list-group">
+													<a href="#" class="list-group-item active"> 
+														<h4 class="list-group-item-heading">Mon projet</h4>
+														<p class="list-group-item-text">description</p> 
+													</a>
+													<li class="list-group-item">
+														<small>Dernière activité il y a 12 jour(s)</small>
+													</li>
+													<li class="list-group-item">
+														<span class="badge">1</span>
+														Membre(s)
+													</li>
+													<li class="list-group-item">
+														<span class="badge">0</span>
+														Outil(s)
+													</li>
+													<li class="list-group-item">
+														<span class="badge">1</span>
+														Compétence(s)
+													</li>
+													<li class="list-group-item">
+														Statut <span class="label label-success"><em>En cours</em></span>
+													</li>
+												</ul>
+											</div>
+
+										</div>
+									</section>
+								</div>
+								<div class="panel-footer">
+									Rien à afficher ici
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+				<!-- -/conteneur gauche : conteneur de l'application -->
+
+				<!-- - conteneur droite : conteneur de notification l'application -->
+				<div id="mco-id-app-right-container" class="col-xs-6 col-md-2 mco-panel-container">
+					<div class="col-md-12">
+						<div class="panel mco-panel">
+							<div class="panel-heading">
+								<h3 class="panel-title">Notifications</h3>
+							</div>
+							<div class="panel-body">
+								Panel content
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>

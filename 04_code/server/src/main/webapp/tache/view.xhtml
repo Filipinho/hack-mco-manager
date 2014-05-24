@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{tacheBean.id}"/>
+		<f:event type="preRenderView" listener="#{tacheBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Tache"/>
+
+	<ui:define name="header">
+		Tache
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Tache
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="tacheBeanTacheLibelle" value="Libelle:"/>
+			<h:outputText id="tacheBeanTacheLibelle" value="#{tacheBean.tache.libelle}"/>
+			<h:outputText/>
+			<h:outputLabel for="tacheBeanTacheDuree" value="Duree:"/>
+			<h:outputText id="tacheBeanTacheDuree" value="#{tacheBean.tache.duree}"/>
+			<h:outputText/>
+			<h:outputLabel for="tacheBeanTacheConsomme" value="Consomme:"/>
+			<h:outputText id="tacheBeanTacheConsomme" value="#{tacheBean.tache.consomme}"/>
+			<h:outputText/>
+			<h:outputLabel for="tacheBeanTacheRaf" value="Raf:"/>
+			<h:outputText id="tacheBeanTacheRaf" value="#{tacheBean.tache.raf}"/>
+			<h:outputText/>
+			<h:outputLabel for="tacheBeanTacheStatut" value="Statut:"/>
+			<h:outputText id="tacheBeanTacheStatut" value="#{tacheBean.tache.statut}"/>
+			<h:outputText/>
+			<h:outputLabel for="tacheBeanTacheActivite" value="Activite:"/>
+			<h:link id="tacheBeanTacheActivite" outcome="/activite/view" value="#{tacheBean.tache.activite}">
+				<f:param name="id" value="#{tacheBean.tache.activite.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

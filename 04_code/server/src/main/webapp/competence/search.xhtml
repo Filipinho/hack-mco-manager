@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{competenceBean.page}"/>
+		<f:event type="preRenderView" listener="#{competenceBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Competence entities"/>
+
+	<ui:define name="header">
+		Competence
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Competence entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="competenceBeanExampleFamille" value="Famille:"/>
+						<h:panelGroup>
+							<h:inputText id="competenceBeanExampleFamille" value="#{competenceBean.example.famille}"/>
+							<h:message for="competenceBeanExampleFamille" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="competenceBeanExampleLibelle" value="Libelle:"/>
+						<h:panelGroup>
+							<h:inputText id="competenceBeanExampleLibelle" value="#{competenceBean.example.libelle}"/>
+							<h:message for="competenceBeanExampleLibelle" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="competenceBeanExampleCommentaire" value="Commentaire:"/>
+						<h:panelGroup>
+							<h:inputText id="competenceBeanExampleCommentaire" value="#{competenceBean.example.commentaire}"/>
+							<h:message for="competenceBeanExampleCommentaire" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{competenceBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{competenceBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="competenceBeanPageItems" styleClass="data-table" value="#{competenceBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Famille"/>
+					</f:facet>
+					<h:link outcome="/competence/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemFamille" value="#{_item.famille}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Libelle"/>
+					</f:facet>
+					<h:link outcome="/competence/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemLibelle" value="#{_item.libelle}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Commentaire"/>
+					</f:facet>
+					<h:link outcome="/competence/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCommentaire" value="#{_item.commentaire}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{competenceBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"	
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{membreBean.id}"/>
+		<f:event type="preRenderView" listener="#{membreBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Membre"/>
+
+	<ui:define name="header">
+		Membre
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test="#{!empty membreBean.id}">
+				Edit existing Membre
+			</c:when>
+			<c:otherwise>
+				Create a new Membre
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="membreBeanMembreTrigramme" value="Trigramme:"/>
+				<h:panelGroup>
+					<h:inputText id="membreBeanMembreTrigramme" maxLength="3" value="#{membreBean.membre.trigramme}"/>
+					<h:message for="membreBeanMembreTrigramme" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="membreBeanMembreNom" value="Nom:"/>
+				<h:panelGroup>
+					<h:inputText id="membreBeanMembreNom" value="#{membreBean.membre.nom}"/>
+					<h:message for="membreBeanMembreNom" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="membreBeanMembrePrenom" value="Prenom:"/>
+				<h:panelGroup>
+					<h:inputText id="membreBeanMembrePrenom" value="#{membreBean.membre.prenom}"/>
+					<h:message for="membreBeanMembrePrenom" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="membreBeanMembreEmail" value="Email:"/>
+				<h:panelGroup>
+					<h:inputText id="membreBeanMembreEmail" value="#{membreBean.membre.email}"/>
+					<h:message for="membreBeanMembreEmail" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="membreBeanMembreOrganisation" value="Organisation:"/>
+				<h:panelGroup>
+					<h:inputText id="membreBeanMembreOrganisation" value="#{membreBean.membre.organisation}"/>
+					<h:message for="membreBeanMembreOrganisation" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action="#{membreBean.update}" styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test="#{!empty membreBean.id}">
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value="#{membreBean.id}"/>
+						</h:link>
+						<h:commandLink value="Delete" action="#{membreBean.delete}" styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,50 @@
+<div id="form_container">
+	<section id="form_heading">
+		<div id="form_error_message"></div>
+	</section>
+	<section id="form_body">
+		<form role="form" class="form-horizontal" id="resourcesform" name="resources" method="post" action="javascript:void(0)" accept-charset="UTF-8" enctype="multipart/form-data">
+			<fieldset>
+				<legend>
+					Ajouter un nouveau projet
+				</legend>
+				<p class="form_tips">
+					Les champs marqués d'une (<abbr title="Required field">*</abbr>) sont obligatoires.
+				</p>
+				<div class="form-group">
+					<label class="control-label col-md-2" for="nom">Nom du projet: <abbr title="Required">*</abbr> </label>
+					<div class="col-md-10">
+						<input class="form-control" name="nom" type="text" id="nom" title="Nom du projet" placeholder="Nom du projet">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-2" for="description">Description:<abbr title="Required">*</abbr></label>
+					<div class="col-md-10">
+						<input class="form-control" name="description" type="text" id="description" title="Description" placeholder="Description">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-2" for="debut">Date de début:<abbr title="Required">*</abbr></label>
+					<div class="col-md-10">
+						<input class="form-control" name="debut" type="date" id="debut" placeholder="Date de début">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-2" for="fin">Date de fin:<abbr title="Required">*</abbr></label>
+					<div class="col-md-10">
+						<input class="form-control" name="fin" type="date" id="fin" placeholder="Date de fin">
+					</div>
+				</div>
+				<div id="form_auth_token">
+					<input name="auth_token" type="hidden" value="1">
+					<input name="form_id" type="hidden" value="form_ressources">
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<input class="btn btn-info" type="submit" name="submit" id="submit" value="Ajouter ce projet">
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</section>
+</div>

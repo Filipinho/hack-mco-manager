@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{activiteBean.id}"/>
+		<f:event type="preRenderView" listener="#{activiteBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Activite"/>
+
+	<ui:define name="header">
+		Activite
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Activite
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="activiteBeanActiviteNom" value="Nom:"/>
+			<h:outputText id="activiteBeanActiviteNom" value="#{activiteBean.activite.nom}"/>
+			<h:outputText/>
+			<h:outputLabel for="activiteBeanActiviteFamille" value="Famille:"/>
+			<h:outputText id="activiteBeanActiviteFamille" value="#{activiteBean.activite.famille}"/>
+			<h:outputText/>
+			<h:outputLabel for="activiteBeanActiviteCode" value="Code:"/>
+			<h:outputText id="activiteBeanActiviteCode" value="#{activiteBean.activite.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="activiteBeanActiviteLibelle" value="Libelle:"/>
+			<h:outputText id="activiteBeanActiviteLibelle" value="#{activiteBean.activite.libelle}"/>
+			<h:outputText/>
+			<h:outputLabel for="activiteBeanActiviteDuree" value="Duree:"/>
+			<h:outputText id="activiteBeanActiviteDuree" value="#{activiteBean.activite.duree}"/>
+			<h:outputText/>
+			<h:outputLabel for="activiteBeanActiviteCommentaire" value="Commentaire:"/>
+			<h:outputText id="activiteBeanActiviteCommentaire" value="#{activiteBean.activite.commentaire}"/>
+			<h:outputText/>
+			<h:outputLabel for="activiteBeanActiviteTaches" value="Taches:"/>
+			<h:dataTable id="activiteBeanActiviteTaches" styleClass="data-table" value="#{forgeview:asList(activiteBean.activite.taches)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Libelle"/>
+					</f:facet>
+					<h:link outcome="/tache/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemLibelle" value="#{_item.libelle}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Duree"/>
+					</f:facet>
+					<h:link outcome="/tache/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDuree" value="#{_item.duree}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Consomme"/>
+					</f:facet>
+					<h:link outcome="/tache/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemConsomme" value="#{_item.consomme}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Raf"/>
+					</f:facet>
+					<h:link outcome="/tache/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemRaf" value="#{_item.raf}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Statut"/>
+					</f:facet>
+					<h:link outcome="/tache/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemStatut" value="#{_item.statut}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>
